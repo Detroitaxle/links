@@ -12,8 +12,8 @@
         :root {
             --bg-color: #1a1a1a;
             --text-color: #e0e0e0;
-            --accent-color: #4a6fa5;
-            --hover-color: #5d8bd8;
+            --accent-color: #E74C3C; /* Changed to reddish-orange */
+            --hover-color: #FF6B5B; /* Lighter reddish-orange for hover */
             --card-bg: #2d2d2d;
             --border-color: #3d3d3d;
             --transition-speed: 0.3s;
@@ -364,12 +364,12 @@
             links.classList.toggle('active');
         }
 
-        // Open all categories by default
+        // Start with all categories collapsed
         document.addEventListener('DOMContentLoaded', function() {
             const headers = document.querySelectorAll('.category-header');
             headers.forEach(header => {
-                header.classList.add('active');
-                header.nextElementSibling.classList.add('active');
+                header.classList.remove('active');
+                header.nextElementSibling.classList.remove('active');
             });
         });
     </script>
