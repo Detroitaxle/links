@@ -12,8 +12,8 @@
         :root {
             --bg-color: #1a1a1a;
             --text-color: #e0e0e0;
-            --accent-color: #E74C3C; /* Changed to reddish-orange */
-            --hover-color: #FF6B5B; /* Lighter reddish-orange for hover */
+            --accent-color: #D35400; /* Darker reddish-orange */
+            --hover-color: #E67E22; /* Softer hover color */
             --card-bg: #2d2d2d;
             --border-color: #3d3d3d;
             --transition-speed: 0.3s;
@@ -31,7 +31,7 @@
             color: var(--text-color);
             line-height: 1.6;
             padding: 20px;
-            max-width: 1200px;
+            max-width: 800px; /* Narrower container for single column */
             margin: 0 auto;
         }
 
@@ -50,9 +50,8 @@
 
         .container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+            flex-direction: column; /* Single column layout */
+            gap: 15px;
         }
 
         .category {
@@ -60,13 +59,15 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             width: 100%;
-            max-width: 500px;
             overflow: hidden;
-            transition: transform var(--transition-speed) ease;
+            transition: all var(--transition-speed) ease;
+            border-left: 4px solid var(--card-bg);
         }
 
         .category:hover {
-            transform: translateY(-5px);
+            transform: translateX(5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+            border-left: 4px solid var(--accent-color);
         }
 
         .category-header {
@@ -78,6 +79,11 @@
             justify-content: space-between;
             align-items: center;
             font-weight: bold;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .category-header:hover {
+            background-color: var(--hover-color);
         }
 
         .category-header i {
@@ -130,17 +136,6 @@
 
         .link-item a:hover {
             color: var(--hover-color);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .category {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -357,11 +352,27 @@
     </div>
 
     <script>
-        // Toggle category visibility
+        // Toggle category visibility (only one open at a time)
         function toggleCategory(header) {
-            header.classList.toggle('active');
-            const links = header.nextElementSibling;
-            links.classList.toggle('active');
+            const currentlyActive = document.querySelector('.category-header.active');
+            const currentLinks = currentlyActive ? currentlyActive.nextElementSibling : null;
+            
+            // If clicking the already active header, just close it
+            if (header.classList.contains('active')) {
+                header.classList.remove('active');
+                header.nextElementSibling.classList.remove('active');
+                return;
+            }
+            
+            // Close currently active category if there is one
+            if (currentlyActive && currentlyActive !== header) {
+                currentlyActive.classList.remove('active');
+                currentLinks.classList.remove('active');
+            }
+            
+            // Open the clicked category
+            header.classList.add('active');
+            header.nextElementSibling.classList.add('active');
         }
 
         // Start with all categories collapsed
