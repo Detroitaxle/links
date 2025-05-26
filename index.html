@@ -12,10 +12,17 @@
         :root {
             --bg-color: #1a1a1a;
             --text-color: #e0e0e0;
-            --accent-color: #E67E22;
             --card-bg: #2d2d2d;
             --border-color: #3d3d3d;
             --transition-speed: 0.25s;
+            
+            /* Category Colors */
+            --main-color: #3498db;       /* Blue */
+            --forms-color: #e74c3c;      /* Red */
+            --sheets-color: #2ecc71;     /* Green */
+            --vin-color: #f39c12;        /* Orange */
+            --shop-color: #9b59b6;       /* Purple */
+            --parts-color: #1abc9c;      /* Teal */
         }
 
         * {
@@ -42,7 +49,7 @@
         }
 
         h1 {
-            color: var(--accent-color);
+            color: #e67e22;
             margin-bottom: 10px;
             font-size: 2.5rem;
         }
@@ -61,8 +68,15 @@
             overflow: hidden;
         }
 
+        /* Category-specific styles */
+        .category-main .category-header { background-color: var(--main-color); }
+        .category-forms .category-header { background-color: var(--forms-color); }
+        .category-sheets .category-header { background-color: var(--sheets-color); }
+        .category-vin .category-header { background-color: var(--vin-color); }
+        .category-shop .category-header { background-color: var(--shop-color); }
+        .category-parts .category-header { background-color: var(--parts-color); }
+
         .category-header {
-            background-color: var(--accent-color);
             color: white;
             padding: 15px;
             cursor: pointer;
@@ -95,18 +109,34 @@
             border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
+            transition: background-color var(--transition-speed) ease-out;
         }
 
         .link-item:last-child {
             border-bottom: none;
         }
 
+        /* Hover effects that match category colors */
+        .category-main .link-item:hover { background-color: rgba(52, 152, 219, 0.1); }
+        .category-forms .link-item:hover { background-color: rgba(231, 76, 60, 0.1); }
+        .category-sheets .link-item:hover { background-color: rgba(46, 204, 113, 0.1); }
+        .category-vin .link-item:hover { background-color: rgba(243, 156, 18, 0.1); }
+        .category-shop .link-item:hover { background-color: rgba(155, 89, 182, 0.1); }
+        .category-parts .link-item:hover { background-color: rgba(26, 188, 156, 0.1); }
+
         .link-item i {
             margin-right: 10px;
-            color: var(--accent-color);
             width: 20px;
             text-align: center;
         }
+
+        /* Icon colors matching category headers */
+        .category-main .link-item i { color: var(--main-color); }
+        .category-forms .link-item i { color: var(--forms-color); }
+        .category-sheets .link-item i { color: var(--sheets-color); }
+        .category-vin .link-item i { color: var(--vin-color); }
+        .category-shop .link-item i { color: var(--shop-color); }
+        .category-parts .link-item i { color: var(--parts-color); }
 
         .link-item a {
             color: var(--text-color);
@@ -123,7 +153,7 @@
 
     <div class="container">
         <!-- Main Category -->
-        <div class="category">
+        <div class="category category-main">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span><i class="fas fa-home"></i> Main</span>
                 <i class="fas fa-chevron-right"></i>
@@ -173,7 +203,7 @@
         </div>
 
         <!-- Forms Category -->
-        <div class="category">
+        <div class="category category-forms">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span><i class="fas fa-file-alt"></i> Forms</span>
                 <i class="fas fa-chevron-right"></i>
@@ -211,7 +241,7 @@
         </div>
 
         <!-- Sheets Category -->
-        <div class="category">
+        <div class="category category-sheets">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span><i class="fas fa-table"></i> Sheets</span>
                 <i class="fas fa-chevron-right"></i>
@@ -253,7 +283,7 @@
         </div>
 
         <!-- VIN Category -->
-        <div class="category">
+        <div class="category category-vin">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span><i class="fas fa-car"></i> VIN</span>
                 <i class="fas fa-chevron-right"></i>
@@ -271,7 +301,7 @@
         </div>
 
         <!-- Shop Category -->
-        <div class="category">
+        <div class="category category-shop">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span><i class="fas fa-shopping-cart"></i> Shop</span>
                 <i class="fas fa-chevron-right"></i>
@@ -293,7 +323,7 @@
         </div>
 
         <!-- Parts Reference Category -->
-        <div class="category">
+        <div class="category category-parts">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span><i class="fas fa-cogs"></i> Parts Reference</span>
                 <i class="fas fa-chevron-right"></i>
