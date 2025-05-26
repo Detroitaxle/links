@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detroit Axle Links</title>
+    <title>Detroit Axle Resources</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -12,11 +12,11 @@
         :root {
             --bg-color: #1a1a1a;
             --text-color: #e0e0e0;
-            --accent-color: #D35400; /* Darker reddish-orange */
-            --hover-color: #E67E22; /* Softer hover color */
+            --accent-color: #E67E22; /* Softer orange */
+            --hover-color: #F39C12; /* Brighter hover color */
             --card-bg: #2d2d2d;
             --border-color: #3d3d3d;
-            --transition-speed: 0.3s;
+            --transition-speed: 0.25s;
         }
 
         * {
@@ -31,7 +31,7 @@
             color: var(--text-color);
             line-height: 1.6;
             padding: 20px;
-            max-width: 800px; /* Narrower container for single column */
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -50,23 +50,23 @@
 
         .container {
             display: flex;
-            flex-direction: column; /* Single column layout */
+            flex-direction: column;
             gap: 15px;
         }
 
         .category {
             background-color: var(--card-bg);
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             width: 100%;
             overflow: hidden;
-            transition: all var(--transition-speed) ease;
-            border-left: 4px solid var(--card-bg);
+            transition: all var(--transition-speed) ease-out;
+            border-left: 4px solid transparent;
         }
 
         .category:hover {
             transform: translateX(5px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
             border-left: 4px solid var(--accent-color);
         }
 
@@ -79,7 +79,7 @@
             justify-content: space-between;
             align-items: center;
             font-weight: bold;
-            transition: background-color var(--transition-speed) ease;
+            transition: all var(--transition-speed) ease-out;
         }
 
         .category-header:hover {
@@ -87,7 +87,7 @@
         }
 
         .category-header i {
-            transition: transform var(--transition-speed) ease;
+            transition: transform var(--transition-speed) ease-out;
         }
 
         .category-header.active i {
@@ -97,11 +97,11 @@
         .links {
             max-height: 0;
             overflow: hidden;
-            transition: max-height var(--transition-speed) ease;
+            transition: max-height var(--transition-speed) ease-out;
         }
 
         .links.active {
-            max-height: 1000px;
+            max-height: 2000px;
         }
 
         .link-item {
@@ -109,7 +109,7 @@
             border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
-            transition: background-color var(--transition-speed) ease;
+            transition: all var(--transition-speed) ease-out;
         }
 
         .link-item:last-child {
@@ -117,7 +117,7 @@
         }
 
         .link-item:hover {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.08);
         }
 
         .link-item i {
@@ -125,13 +125,18 @@
             color: var(--accent-color);
             width: 20px;
             text-align: center;
+            transition: color var(--transition-speed) ease-out;
+        }
+
+        .link-item:hover i {
+            color: var(--hover-color);
         }
 
         .link-item a {
             color: var(--text-color);
             text-decoration: none;
             flex-grow: 1;
-            transition: color var(--transition-speed) ease;
+            transition: color var(--transition-speed) ease-out;
         }
 
         .link-item a:hover {
@@ -268,6 +273,10 @@
                 <div class="link-item">
                     <i class="fas fa-file-excel"></i>
                     <a href="https://detroitaxle-my.sharepoint.com/:x:/r/personal/malhusan_detroitaxle_com/_layouts/15/Doc.aspx?sourcedoc=%7B3D18A2E7-2A3E-4FDE-AC45-8D5BB93F90DE%7D&file=Single%20Rotor%20List%20(1).xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&ct=1746720751738&wdOrigin=OFFICECOM-WEB.START.EDGEWORTH&cid=6df58357-9d05-4fb8-aad0-5a401f5be9c3&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=2e610391-1ea9-4a7b-998d-3773ec52eac7" target="_blank">Single Rotor List</a>
+                </div>
+                <div class="link-item">
+                    <i class="fas fa-file-excel"></i>
+                    <a href="https://detroitaxle-my.sharepoint.com/:x:/p/mabed/EfsYtK8X2dJGtKOX2QyMjIgBA5n4d9NrFsw1Mt3sWqbUtg?rtime=GtbfgkqH3Ug" target="_blank">Push and Pull</a>
                 </div>
             </div>
         </div>
