@@ -12,8 +12,7 @@
         :root {
             --bg-color: #1a1a1a;
             --text-color: #e0e0e0;
-            --accent-color: #E67E22; /* Softer orange */
-            --hover-color: #F39C12; /* Brighter hover color */
+            --accent-color: #E67E22;
             --card-bg: #2d2d2d;
             --border-color: #3d3d3d;
             --transition-speed: 0.25s;
@@ -60,14 +59,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             width: 100%;
             overflow: hidden;
-            transition: all var(--transition-speed) ease-out;
-            border-left: 4px solid transparent;
-        }
-
-        .category:hover {
-            transform: translateX(5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-            border-left: 4px solid var(--accent-color);
         }
 
         .category-header {
@@ -79,11 +70,6 @@
             justify-content: space-between;
             align-items: center;
             font-weight: bold;
-            transition: all var(--transition-speed) ease-out;
-        }
-
-        .category-header:hover {
-            background-color: var(--hover-color);
         }
 
         .category-header i {
@@ -109,15 +95,10 @@
             border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
-            transition: all var(--transition-speed) ease-out;
         }
 
         .link-item:last-child {
             border-bottom: none;
-        }
-
-        .link-item:hover {
-            background-color: rgba(255, 255, 255, 0.08);
         }
 
         .link-item i {
@@ -125,22 +106,12 @@
             color: var(--accent-color);
             width: 20px;
             text-align: center;
-            transition: color var(--transition-speed) ease-out;
-        }
-
-        .link-item:hover i {
-            color: var(--hover-color);
         }
 
         .link-item a {
             color: var(--text-color);
             text-decoration: none;
             flex-grow: 1;
-            transition: color var(--transition-speed) ease-out;
-        }
-
-        .link-item a:hover {
-            color: var(--hover-color);
         }
     </style>
 </head>
